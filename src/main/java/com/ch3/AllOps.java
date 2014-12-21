@@ -6,6 +6,11 @@ package com.ch3;
 public class AllOps {
     public static void main(String[] args){
         System.out.println("Git!");
+
+        AllOps ops = new AllOps();
+
+        ops.boolTest(true,false);
+        ops.charTest('a','b');
     }
 
     void f(boolean b){}
@@ -17,5 +22,11 @@ public class AllOps {
         f(x!=y);
         f(!y);
         x=x&&y;
+    }
+
+    void charTest(char x, char y){
+        x=(char)(x*y);
+
+
     }
 }
