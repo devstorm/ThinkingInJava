@@ -1,0 +1,220 @@
+class Main { 
+    public static void main(String[] args) { 
+        Integer i = new Integer("10"); 
+        if (i.toString().intern() == i.toString().intern()) { 
+            System.out.println("Равный"); 
+        } else { 
+            System.out.println("Неравный"); 
+        } 
+    } 
+} 
+Пояснение: CopyOnWriteArrayList - это разновидность List нормально переносит вызов метода remove() при перемещении по списку, не выдавая исключения ConcurrentModificationException.
+
+class Main { 
+    public static void main(String[] args) { 
+        switch (new Integer(4)) { 
+            case 4: 
+                System.out.println("4"); 
+                break; 
+            default: 
+                System.out.println("default"); 
+        } 
+    } 
+} 
+
+
+
+public class Test1 { 
+    public static void main(String args[]) { 
+        System.out.println( 5 ^ 6 & 3); 
+        // Подсказка: 
+        // 0 - 0000        // 5 - 0101 
+        // 1 - 0001        // 6 - 0110 
+        // 2 - 0010        // 7 - 0111 
+        // 3 - 0011        // 8 - 1000 
+        // 4 - 0100        // 9 - 1001         
+    } 
+} 
+
+
+Может ли метод main быть объявлен как final?
+ Да
+ 
+ 
+ 
+ public class Main { 
+    public static void main(String s[]) { 
+        System.out.println(true ? false : true == true ? false : true); 
+    } 
+} 
+
+
+if (true) { false } 
+else {  
+    if (true == true) { false } 
+    else { true } 
+} 
+
+
+
+public class Test { 
+  public static void main(String [] args) { 
+    float f = 29.1f; 
+    double d = 29.1; 
+    System.out.println( f == d ); 
+    f = 29.1f; 
+    d = 29.1f; 
+    System.out.println( f == d ); 
+    int i = 1; 
+    long l = 1L; 
+    System.out.println( i == l ); 
+  } 
+} 
+
+
+
+
+public class Main{ 
+    final int x = 1; 
+ 
+    public static void main(String [] str) { 
+        int x = 2;                            //1 
+        for (x = 3 ; x < 5 ; x++);            //2 
+        System.out.println("x=" + x); 
+ 
+    }     
+} 
+
+
+
+
+public class Main{ 
+    final int x = 1; 
+ 
+    public static void main(String [] str) { 
+        int x = 2;                            //1 
+        for (x = 3 ; x < 5 ; x++);            //2 
+        System.out.println("x=" + x); 
+ 
+    }     
+} 
+
+
+
+class A {} 
+class B extends A {} 
+ 
+public class Test {  
+    static public  void main(String args[]) { 
+        B b = new B(); 
+        A a = b; 
+        if (a.hashCode() == b.hashCode()) 
+            System.out.print("Passed"); 
+    } 
+} 
+
+
+class TreeTest { 
+    private static Set<String> set = new TreeSet<String>(); 
+        public static void main(String[] args) { 
+        set.add("one"); 
+        set.add("two"); 
+        set.add("three"); 
+        set.add("/u000a"); 
+        set.add("/u000d"); 
+        set.add("/u000c"); 
+        set.add("1"); 
+        set.add("2"); 
+        set.add("3");         
+        for (String string : set) { 
+            System.out.print(string + " "); 
+        } 
+    }  
+} 
+
+
+
+01: public class MainClass { 
+02:   public static void main(String[] arg) { 
+03:     int limit = 10; 
+04:     int sum = 0; 
+05:  
+06:     int i = 1; 
+07:     for (; i <= limit;) { 
+08:       sum += i++; 
+09:     } 
+10:     System.out.println(sum); 
+11:   } 
+12: } 
+
+
+
+
+
+
+try { 
+    System.out.println("Inside try-block"); 
+} catch(Exception e) { 
+} catch(IOException e) { } 
+2326 / 8237
+ 
+try { 
+    System.out.print("Inside empty try"); 
+} 
+System.out.print("\n"); 
+catch(Exception e) {} 
+610 / 8237
+ 
+try { 
+    System.out.println("Inside try-block"); 
+} 
+catch(IOException e) { }  
+5987 / 8237
+ 
+try { 
+    System.out.println("Inside try-block"); 
+} catch(Exception e) {} 
+
+
+Пояснение: Обработчик исключительной ситуации общего типа не должен предшествовать остальным, иначе исключение уже будет поймано и их код будет недостижим.
+Блоки try, catch и finally не могут разделяться никакими выражениями и пустой инструкцией ; в том числе.
+Если контролируемая исключительная ситуация не возбуждается нигде в блоке try, то и, следовательно, блок catch по контролируемой исключительной ситуации является недостижимым.
+Однако Exception, являющийся контролируемой исключительной ситуацией, в то же время является родителем неконтролируемой исключительной ситуации RuntimeException(и всех потомков этого класса). Компилятор считает, что неконтролируемая исключительная ситуация может возникнуть всегда, и, следовательно, обработчик по Exception является достижимым.
+
+
+
+
+
+class A { 
+    public void m(int k) { 
+        System.out.println("class A, method m : " + ++k); 
+    } 
+} 
+ 
+class B extends A { 
+    public int m(int k) { 
+        System.out.println("class B, method m : " + k++); 
+        return k; 
+    } 
+} 
+ 
+public class MainClass { 
+    public static void main(String args[]) { 
+        A a = new B(); 
+        a.m(34); 
+    } 
+} 
+
+
+
+public class Test { 
+    public static void main(String[] args) { 
+        float f = 1.0 + 1.0f; 
+        f = f + 1; 
+        System.out.println( f/0 ); 
+    } 
+} 
+Пояснение: Возникнет ошибка компиляции в строке
+
+float f = 1.0 + 1.0f; 
+Выражение в правой части имеет тип double и не может быть неявно приведено к типу переменной в левой части (float).
